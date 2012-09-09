@@ -1,4 +1,4 @@
-#include "functions.h
+#include "functions.h"
 
 int main()
 {
@@ -244,22 +244,4 @@ int main()
 	return 0;
 }
 
-// this is about a bomb disposalist, and the robot he controls.
-// loads of haiku's
-// haiclue
-// that thing that I said when we were walking towards tesco, that was "the best thing about text based adventures"
-// // i remembered what that was: it was having a lighter shaped keyhole, and you put your lighter in, and then it turns out that you just broke your lighter, and there was a lighter shaped key around
-
-// LIST OF STUFF TODO todo
-// make list of players command to be regurgitated later
-// not vomit
-// 
-//
-// play as player - > defuse bomb -> play as robot -> follow commands -> defuse bomb -> play as bomb
-//
-// as bomb, commands slowly get corrupted into "explode"
-//
-// EXPLOD....
-// endings: defuse bomb, controlled explosion, incompetent
-// at end of game, list of stats that you did, like $4000's of damage done
 

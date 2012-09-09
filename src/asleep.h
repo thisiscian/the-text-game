@@ -9,7 +9,7 @@ void asleep()
 
 	cout << "You can't remember the last time it was this comfortably dark. "
 	     << "In fact, you can't remember anything! "
-             << Amnesia... It's a big part of your recurring dream. "
+             << "Amnesia... It's a big part of your recurring dream. "
              << "You suspect that you are probably asleep." 
              << endl;
 
@@ -22,7 +22,7 @@ void asleep()
 	while(com != "LISTEN" && count < 5)
 	{
 		cout << "You're too distracted by the distant noises. "
-		     << "If only you had some way of interpreting information from an audiological source" 
+		     << "If only you had some way of interpreting information from an audiological source..." 
   		     << endl;
 		command(com);
 		count++;
@@ -30,7 +30,7 @@ void asleep()
 	while(com != "LISTEN" && count < 10)
 	{
 		cout << "You're sure you have a way of hearing. "
-		     << "If only there was some command you could type, like... GLISTEN. 
+		     << "If only there was some command you could type, like... GLISTEN. " 
                      << "That has too many G's though..." 
                      << endl;
 		command(com);	
@@ -70,7 +70,7 @@ void asleep()
 	cout << "\"...rivate Jones, is Lt. Briggs asleep again? If I ca...\""<< endl;
 	getline (cin, bin);
 	cout << "God, Lt. Briggs seems like he's going to be in trouble. "
-	     << "You really hope you're not Lt. Briggs. 
+	     << "You really hope you're not Lt. Briggs. " 
              << "Say, what is your name?" 
              << endl;
 

@@ -1,4 +1,4 @@
-AC_INIT([TextGame], [0.1c], [bug-automake@gnu.org])
+AC_INIT([textgame], [0.1c], [bug-automake@gnu.org])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_PROG_CXX
 AC_CONFIG_HEADERS([config.h])
