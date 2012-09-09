@@ -1,1 +1,15 @@
-sup
+################
+# INSTALLATION #
+################
+
+To set this up fully, you will require the 'automake' system, which is hopefully already installed.
+Then run;
+1. 'autoreconf --install'
+2. './configure'
+3. 'make'
+
+####################
+# RUNNING THE GAME #
+####################
+
+After installation, the game can be played by running 'src/game'
