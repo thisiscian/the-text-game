@@ -1,3 +1,7 @@
+BUGS: there is a segmentation fault if the input goes over the number of columns: stop that happening
+
+REQUIRED: Way to clear the screen
+
 this is about a bomb disposalist, and the robot he controls.
 loads of haiku's
 haiclue
