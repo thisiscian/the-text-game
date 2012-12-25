@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 //	introduction();
 //	start_haiku();
 //	asleep();
-//	awoken();
+	awoken();
 	computer();
 	continue_game();
 	end_game();	

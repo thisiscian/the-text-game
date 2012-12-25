@@ -1,9 +1,9 @@
 #include "story.h"
 #include <iostream>
 
-command_group p3_get_up (false, {"SIT UP", "GET OFF", "GET UP", "MOVE", "STAND"});
-command_group p3_talk_to_major(false, {"TALK", "LISTEN"}, {"You'd love to talk to the major, but he is too busy SHOUTING AT YOU from strange angles. It's almost like you are LYING DOWN whilst a SUPERIOR OFFICER is wailing down your gully hole. If that were the case you should almost definitely GET UP from WHATEVER you are LYING on..."});
-command_group p3_log_in(true, {"LOG IN"});
+command_group p3_get_up (false, 0, {"SIT UP", "GET OFF", "GET UP", "MOVE", "STAND"});
+command_group p3_talk_to_major(false, 0, {"TALK", "LISTEN"}, {"You'd love to talk to the major, but he is too busy SHOUTING AT YOU from strange angles. It's almost like you are LYING DOWN whilst a SUPERIOR OFFICER is wailing down your gully hole. If that were the case you should almost definitely GET UP from WHATEVER you are LYING on..."});
+command_group p3_log_in(true, 0, {"LOG IN"});
 
 void awoken()
 {
@@ -18,13 +18,13 @@ void awoken()
 	add_output("What are you going to do?");
 	newline_output();
 	get_command();
-	while(!p3_get_up.compare(current_command))
+	while(!p3_get_up.compare(0, current_command))
 	{
-		p3_talk_to_major.respond(current_command);
+		p3_talk_to_major.respond(0, current_command);
 		add_output("What are you going to do? (Note that everything seems to be at a strange angle)");
 		get_command();
 	}
-	add_output("It suddenly clicks, that you are LYING on the EXPENSIVE BOMB DISPOSAL ROBOT's control system. You wake up here, like 3/5 times.\n");
+	add_output("It suddenly clicks, that you are LYING on the EXPENSIVE BOMB DISPOSAL ROBOT's control system. You wake up here, like 3/5 times.");
 	add_output("...");
 	add_output("...");
 	add_output("...");
@@ -41,7 +41,7 @@ void awoken()
 	newline_output();
 	add_output("What do you want to do? (hint: you should probably try to LOG IN to the console, like the MAJOR says)");
 	get_command();
-	while(!p3_log_in.compare(current_command))
+	while(!p3_log_in.compare(0, current_command))
 	{
 		if(current_command.substr(0,4) == "SLAP")
 		{

@@ -26,15 +26,6 @@ void print_outputs()
 		string text = output_list[i].text;
 		int length;	
 
-		while(text.find("\n") != string::npos)
-		{
-			wmove(output_window, i+1, position);
-			length = text.find("\n");
-	
-			wprintw(output_window, text.substr(0, length).c_str());
-			output_list.insert(output_list.begin()+i+1, output_item(text.substr(length+1,string::npos),1));
-			text.erase(text.begin()+length, text.end());
-		}
 		while(text.find("/b") != string::npos)
 		{
 			wmove(output_window, i+1, position);
@@ -63,7 +54,7 @@ void print_outputs()
 
 void output_item_to_output_list(output_item item)
 {
-	if(output_list.size() == (size_t) output_height-2)
+	if(output_list.size() >= (size_t) output_height-2)
 	{
 		output_list.erase(output_list.begin(),output_list.begin()+output_list.size()-output_height+3);
 	}
@@ -76,17 +67,11 @@ void newline_output()
 	output_item_to_output_list(output_item("", 1));	
 }
 
-void add_output(string str, string align)
+void get_position(string str, string align)
 {
 	int length = str.length();
 	int test = 0, pos = 0;
 	int n, first_whitespace;
-	while(str.substr(test, string::npos).find("\n") != string::npos)
-	{
-		test += str.substr(test, string::npos).find("\n")+1;
-		length-=1;
-	}	
-	test = 0;
 	while(str.substr(test, string::npos).find("/b") != string::npos)
 	{
 		test += str.substr(test, string::npos).find("/b")+2;
@@ -125,6 +110,23 @@ void add_output(string str, string align)
 		}
 	}
 	output_item_to_output_list(output_item(str, pos));	
+}
+
+void parse_multiline_output(string str, string align)
+{
+	int length;
+	while(str.find("\n") != string::npos)
+	{
+		length = str.find("\n");
+		get_position(str.substr(0,length), align);
+		str.erase(str.begin(), str.begin()+length+1);
+	}
+	get_position(str, align);
+}
+
+void add_output(string str, string align)
+{
+	parse_multiline_output(str, align);
 }
 
 void add_output(string str)

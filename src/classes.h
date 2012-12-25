@@ -21,20 +21,24 @@ class command_group
 {
 	public:
 	std::vector<command> group;
-	command_group(bool type, std::initializer_list<std::string> commands_temp);
-	command_group(bool type, std::initializer_list<std::string> commands_temp, std::initializer_list<std::string> responses_temp);
-	bool compare(std::string command);
-	void respond(std::string command);
+	int required_state;
+	
+	command_group(bool type, int state, std::initializer_list<std::string> commands_temp);
+	command_group(bool type, int state, std::initializer_list<std::string> commands_temp, std::initializer_list<std::string> responses_temp);
+	bool compare(int current_state, std::string command);
+	void respond(int current_state, std::string command);
 };
 
 class command_list
 {
 	public:
 	std::vector<command_group> list;
+	int current_state;
 
 	command_list(std::initializer_list<command_group> temp_il);
 	bool compare(std::string command);
 	void respond(std::string command);
+	void change_state(int state);
 };
 
 class output_item
